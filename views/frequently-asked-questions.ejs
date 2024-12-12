@@ -1,0 +1,34 @@
+<%- include('partials/head') %>
+
+<div class="nav-faq">
+    <h2>Frequently Asked Questions</h2>
+    <h6>
+        Home > Frequently Asked Questions
+    </h6>
+</div>
+<div class="faq-container">
+    <% 
+    const faqs = [
+
+        { question: "What is a deductible?", answer: "Your deductible is the portion of any claim payment that you agree to pay for out of pocket. If you file a claim and the insurance company determines that it is a covered loss and intends to pay for the loss, they will take the deductible amount or deductible percentage in your policy and deduct it from the claim payment. For example, if you have a $500 deductible amount and your insurance company has determined that you have an insured loss worth $5,000 you would receive a claim check for $4,500. If you have a deductible percentage, then the company would calculate the deductible amount using this percentage figure and deduct the calculated deductible amount." },
+        { question: "What does a homeowner insurance policy cover?", answer: "Generally, Homeowner insurance covers damage from incidents such as fire, theft, and vandalism to your house, other structures like a garage or shed, and your personal belongings. It covers living expenses if your house becomes temporarily unusable, and liability in case you or a member of your household injures someone or damages their property." },
+        { question: "Do I have an adequate amount of dwelling coverage on my policy?", answer: "Since the replacement cost of your house can be affected by inflation, costs of labor and building materials, and any renovations you may make to your home, you should always review your coverage periodically with your agent." },
+        { question: "I don’t own a home; do I still need Homeowners insurance coverage?", answer: "If you own a condominium or rent a home or condo, then there are different types of policies for your insurance needs. Please consult with your agent." },
+        { question: "What do Condominium Insurance policies cover?", answer: "Condominium insurance usually covers things within the unit, including, but not limited to drywall, flooring, fixtures, plumbing, electrical, and personal belongings. It also provides additional living expenses if you are temporarily unable to live in your home because of a loss caused by a covered peril. The condo policy also covers you for lawsuits or liability claims if you are responsible for injury to other people or damage to their property. You should know what your Condo Association’s policy covers (and does not cover) to understand exactly what your policy covers. These are all subject to specific exclusions and applicable deductibles." },
+        { question: "What is Personal Umbrella Coverage?", answer: "Personal Umbrella Coverage is designed to provide excess or additional liability coverage when an insured’s primary Homeowners policy limits are exhausted.  In a covered claim, the insured’s primary insurance policies pay up to their limits, and any additional amount is paid by the umbrella policy (up to the limit of the umbrella policy)." },
+        { question: "What should you do in the event of a loss?", answer: "Call your agent immediately. If your agent is not available, call your insurance company directly. Document the loss by taking notes, if necessary, take photos or a video of the damage for documentation and follow any instructions the insurance company gives you. Make any temporary repairs necessary to protect your property from further damage. For example, board up windows or cover any holes in the roof. Arrange for your insurance company to inspect the damaged property as soon as possible. For Automobile accidents, call the police to the scene of an accident to document the facts. Get all the necessary information from all parties involved such as name, phone numbers, and insurance company." },
+        { question: "How can I get a quote for an HIG policy?", answer: "Independent agents located throughout the state of Hawaii are ready to provide you a quote for a HIG policy. These agents are in your communities and neighborhoods and understand what your insurance needs are. Review our list of Independent Agents to get the protection you need and the service you deserve." },
+    ];
+
+    faqs.forEach(faq => { %>
+        <div class="faq-item">
+            <h2 class="faq-question"><%= faq.question %></h2>
+            <p class="faq-answer"><%= faq.answer %></p>
+        </div>
+    <% }); %>
+    </div> 
+    <script src="/js/frequently-asked-questions.js"></script>
+
+
+<%- include('partials/footer') %>
+

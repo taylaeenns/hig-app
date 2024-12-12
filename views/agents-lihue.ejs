@@ -1,0 +1,134 @@
+<%- include('partials/head') %>
+<div class="nav-portal">
+    <h2>Find Agent</h2>
+    <h6>
+        Home > Find Agent > Lihue
+    </h6>
+</div>
+<div class="map-page">
+    <div class="card-container">
+        <!-- Cards will be inserted here -->
+    </div>
+    <div id="map" class="map"></div>
+</div>
+<script>
+const agents = [
+    {
+        name: "Mokihana Insurance Agency",
+        address: "4393 Kukui Grove Street, #102",
+        city: "Lihue",
+        state: "HI",
+        zip: "96766",
+        phone: "(808) 245-9573",
+        website: "N/A",
+        position: { lat: 21.9686, lng: -159.3682 }
+    },
+    {
+        name: "Punua Insurance Agency, Inc.",
+        address: "4268 Rice Street",
+        city: "Lihue",
+        state: "HI",
+        zip: "96766",
+        phone: "(808) 245-8508",
+        website: "N/A",
+        position: { lat: 21.9750, lng: -159.3689 }
+    },
+    {
+        name: "Pyramid Insurance Centre, Ltd.",
+        address: "4405 Kukui Grove St., #102",
+        city: "Lihue",
+        state: "HI",
+        zip: "96766",
+        phone: "(808) 245-4624",
+        website: "N/A",
+        position: { lat: 21.9687, lng: -159.3680 }
+    }
+];
+
+const cardContainer = document.querySelector('.card-container');
+let map;
+const markers = [];
+
+async function initMap() {
+    const Lihue = { lat: 21.9713, lng: -159.3689 };
+    const { Map } = await google.maps.importLibrary("maps");
+
+    map = new Map(document.getElementById("map"), {
+        zoom: 16,
+        center: Lihue,
+        mapId: "LIHUE_MAP_ID",
+    });
+
+    agents.forEach((agent, index) => {
+        const card = document.createElement('div');
+        card.classList.add('col-md-12', 'card');
+        card.setAttribute('data-id', index);
+
+        card.innerHTML = `
+            <div class="card-body">
+                <h5 class="card-title">${agent.name}</h5>
+                <p class="card-text">
+                    <strong>Address:</strong> ${agent.address}<br>
+                    <strong>City:</strong> ${agent.city}<br>
+                    <strong>State:</strong> ${agent.state}<br>
+                    <strong>Zip Code:</strong> ${agent.zip}<br>
+                    <strong>Phone Number:</strong> ${agent.phone}<br>
+                    <strong>Website:</strong> ${agent.website}
+                </p>
+            </div>
+        `;
+        cardContainer.appendChild(card);
+
+       
+        const infowindow = new google.maps.InfoWindow({
+            content: `
+                <div style="
+                    font-family: 'Open Sans', sans-serif; 
+                    font-size: 14px; 
+                    color: #333;
+                    max-width: 250px; 
+                    padding: 10px; 
+                    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); 
+                    border-radius: 8px;
+                ">
+                    <h2 style="font-size: 1.1rem; margin-top: 0; color: #00539a;">${agent.name}</h2>
+                    <p style="margin: 0;">
+                        <strong>Address:</strong> ${agent.address}<br>
+                        <strong>City:</strong> ${agent.city}<br>
+                        <strong>State:</strong> ${agent.state}<br>
+                        <strong>Zip Code:</strong> ${agent.zip}<br>
+                        <strong>Phone Number:</strong> ${agent.phone}<br>
+                        <strong>Website:</strong> <a href="${agent.website}" target="_blank" style="color: #00539a; text-decoration: none;">${agent.website}</a>
+                    </p>
+                </div>
+            `,
+            ariaLabel: agent.name,
+        });
+
+        const marker = new google.maps.Marker({
+            map: map,
+            position: agent.position,
+            title: agent.name,
+        });
+
+        markers.push({ index, marker, infowindow });
+
+        marker.addListener("click", () => {
+            infowindow.open({
+                anchor: marker,
+                map,
+            });
+        });
+
+        card.addEventListener('click', () => {
+            infowindow.open({
+                anchor: marker,
+                map,
+            });
+        });
+    });
+}
+
+initMap();
+</script>
+<%- include('partials/footer') %>

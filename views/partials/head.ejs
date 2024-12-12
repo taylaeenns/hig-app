@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <!-- <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@100&display=swap" rel="stylesheet"> -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="/css/styles.css" />
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+  <script>
+    (g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;
+    b=b[c]||(b[c]={});
+    var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{
+      await (a=m.createElement("script"));
+      e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);
+      e.set("callback",c+".maps."+q);
+      a.src=`https://maps.${c}apis.com/maps/api/js?`+e;
+      d[q]=f;
+      a.onerror=()=>h=n(Error(p+" could not load."));
+      a.nonce=m.querySelector("script[nonce]")?.nonce||"";
+      m.head.append(a);
+    }));
+    d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))
+  })({
+      key: "<%= process.env.GOOGLE_MAPS_API_KEY %>",
+      v: "weekly",
+    });
+  </script>
+</head>
+<body>
+  <svg xmlns="http://www.w3.org/2000/svg" hidden>
+    <symbol id="arrow" viewbox="0 0 16 16">
+      <polyline points="4 6, 8 10, 12 6" stroke="#000" stroke-width="2" fill="transparent" stroke-linecap="round" />
+    </symbol>
+  </svg>
+  <div class="wrap">
+    <nav id="site-navigation" class="site-navigation" aria-label="Clickable Menu Demonstration">
+      <img src="images/hig-app.svg" class="logo" alt="logo">
+      <ul class="main-menu clicky-menu no-js">
+        <li>
+          <a href="/" id="nav-home">Home</a>
+        </li>
+        <li>
+          <a href="/about" id="nav-about">About</a>
+        </li>
+        <li>
+          <a href="products">Products
+            <svg aria-hidden="true" width="16" height="16">
+              <use xlink:href="#arrow" />
+            </svg>
+          </a>
+          <ul>
+            <li><a href="/home-insurance">Home Insurance</a></li>
+            <li><a href="/business-insurance">Business Insurance</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="find-agent">Find an Agent
+            <svg aria-hidden="true" width="16" height="16">
+              <use xlink:href="#arrow" />
+            </svg>
+          </a>
+          <ul>
+            <li><a href="agents-hilo">Hilo</a></li>
+            <li><a href="agents-honolulu">Honolulu</a></li>
+            <li><a href="agents-kahului">Kahului</a></li>
+            <li><a href="agents-kailua-kona">Kailua-Kona</a></li>
+            <li><a href="agents-kapolei">Kapolei</a></li>
+            <li><a href="agents-kaunakakai">Kaunakakai</a></li>
+            <li><a href="agents-kihei">Kihei</a></li>
+            <li><a href="agents-lahaina">Lahaina</a></li>
+            <li><a href="agents-lihue">Lihue</a></li>
+            <li><a href="agents-wailuku">Wailuku</a></li>
+            <li><a href="agents-waipahu">Waipahu</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="https://lookup.simply-easier-payments.com/PaymentLookup/Provider/hawaiian_insurance/PaymentLookup.faces">Make a Payment</a>
+        </li>
+        <li>
+          <a href="/frequently-asked-questions">FAQs</a>
+        </li>
+        <li>
+          <a href="/contact-us">Contact</a>
+        </li>
+      </ul>
+    </nav>
+  

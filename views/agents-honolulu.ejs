@@ -1,0 +1,284 @@
+
+<%- include('partials/head') %>
+        <div class="nav-portal">
+            <h2>Find Agent</h2>
+            <h6>
+                Home > Find Agent > Honolulu
+            </h6>
+            </div>
+            <div class="map-page">
+                <div class="card-container">
+                  <!-- Cards will be inserted here -->
+              </div>
+              <div id="map" class="map"></div>
+            </div>
+            <script>
+            const agents = [
+ 
+                {
+                name: "ACW Group, LLC",
+                address: "1000 Bishop Street, Ste #600",
+                city: "Honolulu",
+                state: "HI",
+                zip: "96813",
+                phone: "(808) 535-5050",
+                website: "N/A",
+                position: { lat: 21.30902, lng: -157.86141 }
+            },
+            {
+                name: "American Mutual Group",
+                address: "1357 Kapiolani Blvd., Suite 1000",
+                city: "Honolulu",
+                state: "HI",
+                zip: "96814",
+                phone: "(808) 522-8650",
+                website: "N/A",
+                position: { lat: 21.29527, lng: -157.84638 }
+            },
+            {
+                name: "Cavanah Associates, Inc.",
+                address: "1100 Alakea Street, Suite 2600",
+                city: "Honolulu",
+                state: "HI",
+                zip: "96813",
+                phone: "(808) 537-1970",
+                website: "N/A",
+                position: { lat: 21.30937, lng: -157.85955 },
+            },
+            {
+                
+                name: "Cornerstones Financial LLC",
+                address: "1001 Bishop Street, Suite 585",
+                city: "Honolulu",
+                state: "HI",
+                zip: "96813",
+                phone: "(808) 626-5033",
+                website: "http://www.CornerstonesFinancial.com",
+                position: { lat: 21.30839, lng: -157.86072 }
+            },
+            {
+                name: "Finance Insurance, Ltd.",
+                address: "1164 Bishop Street, Suite 400",
+                city: "Honolulu",
+                state: "HI",
+                zip: "96813",
+                phone: "(808) 522-2040",
+                website: "N/A",
+                position: { lat: 21.31053, lng: -157.85966 }
+            },
+            {
+                name: "GEICO Insurance Agency, Inc.",
+                address: "711 Kapiolani Boulevard",
+                city: "Honolulu",
+                state: "HI",
+                zip: "96813",
+                phone: "(808) 593-1010",
+                website: "https://www.geico.com/",
+                position: { lat: 21.30165, lng: -157.85594 }
+            },
+            {
+                name: "Hawaiian Islands Insurance, Inc.",
+                address: "7 Waterfront Plaza, 500 Ala Moana Boulevard, Suite 400",
+                city: "Honolulu",
+                state: "HI",
+                zip: "96813",
+                phone: "(808) 212-9202",
+                website: "www.hawaiianins.com",
+                position: { lat: 21.30123, lng: -157.86162 }
+            },
+            {
+                name: "Insurance Associates, Inc.",
+                address: "800 Bethel Street, Suite 200",
+                city: "Honolulu",
+                state: "HI",
+                zip: "96813",
+                phone: "(808) 538-6938",
+                website: "N/A",
+                position: { lat: 21.30997, lng: -157.86391 }
+            },
+            {
+                name: "Insurance Factors",
+                address: "745 Fort Street Suite 1000",
+                city: "Honolulu",
+                state: "HI",
+                zip: "96813-3809",
+                phone: "(808) 546-7469",
+                website: "N/A",
+                position: { lat: 21.30841, lng: -157.86359 }
+            },
+            {
+                name: "Jerry Hay, Inc.",
+                address: "650 Iwilei Road, Ste. 206",
+                city: "Honolulu",
+                state: "HI",
+                zip: "96817",
+                phone: "(808) 521-1841",
+                website: "N/A",
+                position: { lat: 21.31710, lng: -157.87083 }
+            },
+            {
+                name: "John H. Connors, Inc.",
+                address: "500 Ala Moana Blvd # 2-303",
+                city: "Honolulu",
+                state: "HI",
+                zip: "96813",
+                phone: "(808) 521-3663",
+                website: "N/A",
+                position: { lat: 21.30133, lng: -157.8632 }
+            },
+            {
+                name: "Monarch Insurance Services, Inc.",
+                address: "677 Ala Moana Blvd., #500",
+                city: "Honolulu",
+                state: "HI",
+                zip: "96813",
+                phone: "(808) 537-2564",
+                website: "N/A",
+                position: { lat: 21.29760, lng: -157.86263 }
+            },
+            {
+                name: "Mutual Underwriters",
+                address: "680 Iwilei Road, Suite 760",
+                city: "Honolulu",
+                state: "HI",
+                zip: "96817",
+                phone: "(808) 532-2888",
+                website: "N/A",
+                position: { lat: 21.31653, lng: -157.87039 }
+            },
+            {
+
+                name: "Premier Insurance Agency, Inc.",
+                address: "680 Iwilei Road, Suite 760",
+                city: "Honolulu",
+                state: "HI",
+                zip: "96817",
+                phone: "(808) 532-0100",
+                website: "N/A",
+                position: { lat: 21.31755, lng: -157.87060 }
+            },
+            {
+                name: "Pyramid Insurance Centre, Ltd.",
+                address: "420 Waiakamilo Road, Suite 411",
+                city: "Honolulu",
+                state: "HI",
+                zip: "96817",
+                phone: "(808) 527-7667",
+                website: "N/A",
+                position: { lat: 21.32290, lng: -157.87845 }
+            },
+            {
+                name: "Servco Insurance Services",
+                address: "700 Bishop St., Ste. 1400 Topa Fin Ctr",
+                city: "Honolulu",
+                state: "HI",
+                zip: "96813",
+                phone: "(808) 540-3333",
+                website: "N/A",
+                position: { lat: 21.30767, lng: -157.86348 }
+             
+            }];
+            
+            const cardContainer = document.querySelector('.card-container');
+
+            let map;
+            const markers = [];
+
+            async function initMap() {
+                const Honolulu = { lat: 21.3099, lng: -157.8581 };
+                const { Map } = await google.maps.importLibrary("maps");
+
+                map = new Map(document.getElementById("map"), {
+                    zoom: 14,
+                    center: Honolulu,
+                    mapId: "HONOLULU_MAP_ID",
+                  });
+
+            agents.forEach((agent, index) => {
+            // Create and append card
+            const card = document.createElement('div');
+            card.classList.add('col-md-12', 'card');
+            card.setAttribute('data-id', index);
+
+            card.innerHTML = `
+                <div class="card-body">
+                    <h5 class="card-title">${agent.name}</h5>
+                    <p class="card-text">
+                        <strong>Address:</strong> ${agent.address}<br>
+                        <strong>City:</strong> ${agent.city}<br>
+                        <strong>State:</strong> ${agent.state}<br>
+                        <strong>Zip Code:</strong> ${agent.zip}<br>
+                        <strong>Phone Number:</strong> ${agent.phone}<br>
+                        <strong>Website:</strong> ${agent.website}
+                    </p>
+                </div>
+            `;
+            cardContainer.appendChild(card);
+
+            // Create marker
+            const infowindow = new google.maps.InfoWindow({
+            content: `
+                <div style="
+                    font-family: 'Open Sans', sans-serif; 
+                    font-size: 14px; 
+                    color: #333;
+                    max-width: 250px; 
+                    padding: 10px; 
+                    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); 
+                    border-radius: 8px;
+                ">
+                    <h2 style="font-size: 1.1rem; margin-top: 0; color: #00539a;">${agent.name}</h2>
+                    <p style="margin: 0;">
+                        <strong>Address:</strong> ${agent.address}<br>
+                        <strong>City:</strong> ${agent.city}<br>
+                        <strong>State:</strong> ${agent.state}<br>
+                        <strong>Zip Code:</strong> ${agent.zip}<br>
+                        <strong>Phone Number:</strong> ${agent.phone}<br>
+                        <strong>Website:</strong> <a href="${agent.website}" target="_blank" style="color: #00539a; text-decoration: none;">${agent.website}</a>
+                    </p>
+                </div>
+            `,
+            ariaLabel: agent.name,
+        });
+
+            const marker = new google.maps.Marker({
+                map: map,
+                position: agent.position,
+                title: agent.name,
+            });
+            
+            // Store the marker with its index
+             markers.push({ index, marker, infowindow });
+
+            marker.addListener("click", () => {
+                infowindow.open({
+                    anchor: marker,
+                    map,
+                });
+            });
+            card.addEventListener('click', () => {
+            infowindow.open({
+                anchor: marker,
+                map,
+            });
+        });
+        });
+
+        // Log all cards
+    console.log("Agent Cards:");
+    document.querySelectorAll('.card').forEach((card, idx) => {
+        console.log(`Card ${idx}:`, card.innerHTML);
+    });
+
+    // Log all markers
+    console.log("Markers:");
+    markers.forEach(({ index, marker }) => {
+        console.log(`Marker ${index}:`, marker.getPosition().toJSON());
+    });
+    }
+
+                initMap();
+       
+            </script>
+            
+<%- include('partials/footer') %>

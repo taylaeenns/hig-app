@@ -1,0 +1,75 @@
+<%- include('partials/head') %>
+
+<div class="nav-faq">
+    <h2>Contact Us</h2>
+    <h6>
+        Home > Contact Us
+    </h6>
+</div>
+
+<!-- Contact Section -->
+<div class="contact-container" style="display: flex; justify-content: space-between; align-items: flex-start; padding: 40px; gap: 20px; background-color: #f8f9fa;">
+    
+    <!-- Contact Form -->
+    <div class="contact-form" style="flex: 1; background-color: white; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding: 20px;">
+        <h3 style="color: #00457c; margin-bottom: 20px;">Send Us a Message</h3>
+        <form action="https://api.web3forms.com/submit" method="POST" style="display: flex; flex-direction: column; gap: 15px;">
+            <!-- REMOVE KEY AND PLACE IN .ENV FILE BEFORE DEPLOYMENT -->
+            <input type="hidden" name="access_key" value="<%= process.env.EMAIL_ACCESS_KEY %>">
+            <input type="text" name="name" placeholder="Your Name" required style="padding: 10px; border: 1px solid #ccc; border-radius: 5px; font-size: 1rem;">
+            <input type="email" id= "email"name="email" placeholder="Your Email" required style="padding: 10px; border: 1px solid #ccc; border-radius: 5px; font-size: 1rem;">
+            <textarea name="message" placeholder="Your Message" rows="5" required style="padding: 10px; border: 1px solid #ccc; border-radius: 5px; font-size: 1rem;"></textarea>
+            <button type="submit" style="background-color: #0072b5; color: white; padding: 10px 20px; border: none; border-radius: 50px; font-size: 1rem; cursor: pointer; transition: background-color 0.3s ease;">
+                Submit
+            </button>
+        </form>
+    </div>
+
+    <!-- Contact Details -->
+    <div class="contact-details" style="flex: 1; padding: 20px; background-color: white; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+        <h3 style="color: #00457c; margin-bottom: 20px;">Contact Information</h3>
+        <p style="font-size: 1rem; color: #555; margin-bottom: 10px;"><strong>Phone:</strong> (808) 725-3576</p>
+        <p style="font-size: 1rem; color: #555; margin-bottom: 10px;"><strong>Toll-Free:</strong> (844) 413-1914</p>
+        <p style="font-size: 1rem; color: #555; margin-bottom: 10px;"><strong>Fax:</strong> (808) 547-8464</p>
+        <p style="font-size: 1rem; color: #555; margin-bottom: 10px;"><strong>Email:</strong> support@hawaiiinsurance.com</p>
+        <p style="font-size: 1rem; color: #555; margin-bottom: 10px;"><strong>Address:</strong><br>
+            Pioneer Plaza<br>
+            900 Fort Street Mall, Ste. 1645<br>
+            Honolulu, HI 96813</p>
+        <p style="font-size: 1rem; color: #555;"><strong>Hours:</strong><br>
+            Mon - Thurs: 7 AM - 4 PM<br>
+            Friday: 7:15 AM - 3 PM</p>
+    </div>
+</div>
+
+<!-- Map Section -->
+<div class="map-container" style="padding: 20px; background-color: #f8f9fa;">
+    <h3 style="color: #00457c; text-align: center; margin-bottom: 20px;">Our Location</h3>
+    <iframe 
+        src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDtuOA4ajkDgqpoNwu2Lv3YSKdzWLb7i68&q=Pioneer+Plaza,900+Fort+Street+Mall+Ste+1645,Honolulu,HI,96813" 
+        width="100%" 
+        height="400" 
+        style="border: 0; border-radius: 10px;" 
+        allowfullscreen 
+        loading="lazy">
+    </iframe>
+</div>
+
+<div class="agent">
+    <div class="get-quote">
+    <h3>Get a Quote Today!</h3>
+    <p>Find an Agent near you to get a free custom quote.</p>
+</div>
+<a href="/find-agent">
+    <button class="find-agent">
+        Find an Agent
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+        </svg>
+    </button>
+  </a>
+</div>
+
+
+
+<%- include('partials/footer') %>
